@@ -15,23 +15,31 @@
     }
 
     header {
-      background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
-      color: white; 
-      padding: 60px 20px; 
-      text-align: center;
       position: relative;
+      height: 400px;
+      background: url('header-bg.jpg') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed; /* Parallax-Effekt */
+      text-align: center;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     header::after {
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(46,139,87,0.6); /* grüne Overlay-Farbe für besseren Kontrast */
+      background: rgba(46,139,87,0.3); /* leichte Overlay-Farbe */
+      z-index: 0;
     }
 
     header h1, header p {
       position: relative;
       margin: 0;
+      z-index: 1;
     }
 
     header h1 { font-size: 36px; }
@@ -44,6 +52,14 @@
     .intro {
       padding: 20px; 
       text-align: center;
+    }
+
+    .highlight-image {
+      display: block;
+      max-width: 300px;
+      margin: 20px auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
 
     .services {
@@ -77,4 +93,61 @@
       color: white;
       padding: 10px 20px;
       margin: 5px;
-      border
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .contact a:hover { background: #246645; }
+
+    footer { 
+      background: #163625; 
+      color: white; 
+      padding: 20px; 
+      text-align: center; 
+      font-size: 14px; 
+      line-height: 1.5; 
+    }
+
+    @media(max-width: 600px) {
+      .services { grid-template-columns: 1fr; }
+      header h1 { font-size: 28px; }
+      header { height: 300px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Haus & Gartenservice Reinhardt</h1>
+    <p>Koblenz & Umgebung – Zuverlässig. Grün. Professionell.</p>
+  </header>
+
+  <main>
+    <section class="intro">
+      <p>Willkommen bei Haus & Gartenservice Reinhardt! Wir kümmern uns zuverlässig um Ihr Zuhause und Ihren Garten – professionell und persönlich.</p>
+      <img src="https://img.kleinanzeigen.de/api/v1/prod-ads/images/f5/f5fb2e57-2bdf-4dbb-a562-75e5aab27b39?rule=$_59.AUTO" alt="Haus & Gartenservice Beispielbild" class="highlight-image">
+    </section>
+
+    <section class="services">
+      <article class="service">
+        <h2>Garten- & Objektpflege</h2>
+        <p>Rasenpflege, Hecken schneiden, Pflanzenpflege, Außenanlagen sauber halten</p>
+      </article>
+      <article class="service">
+        <h2>Hausmeisterservice & Renovierung</h2>
+        <p>Kleinreparaturen, Renovierungsarbeiten, Wartung, Reinigung von Gebäuden</p>
+      </article>
+      <article class="service">
+        <h2>Entrümpelung & Entsorgung</h2>
+        <p>Abfälle, Sperrmüll, alte Möbel, Gartenabfälle sicher und sauber entsorgen</p>
+      </article>
+    </section>
+
+    <section class="contact">
+      <address>
+        📞 <a href="tel:+4915234205074" aria-label="Rufen Sie uns an">+49 152 34205074</a><br>
+        💬 <a href="https://wa.me/4915234205074" target="_blank" rel="noopener" aria-label="Schreiben Sie uns auf WhatsApp">WhatsApp schreiben</a><br>
+        ✉️ <a href="mailto:HGS-Koblenz@web.de" aria-label="E-Mail schreiben">HGS-Koblenz@web.de</a>
+      </address>
+    </sect
