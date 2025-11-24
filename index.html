@@ -3,50 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Haus & Gartenservice Reinhardt</title>
+<title>Haus & Gartenservice Reinhardt – Gartenpflege, Hausmeisterservice, Entrümpelung Koblenz</title>
+<meta name="description" content="Professioneller Haus & Gartenservice in Koblenz. Gartenpflege, Hausmeisterservice, Renovierungen, Entrümpelung & Entsorgung. Kostenlose Besichtigung & unverbindliches Angebot.">
+<meta name="keywords" content="Gartenservice Koblenz, Hausmeisterservice, Renovierung, Entrümpelung, Haushaltsauflösung, Gartenpflege">
+
+<!-- Open Graph / Social Media Vorschau -->
+<meta property="og:title" content="Haus & Gartenservice Reinhardt – Koblenz">
+<meta property="og:description" content="Gartenpflege, Hausmeisterservice, Renovierungen, Entrümpelung & Entsorgung. Kostenlose Besichtigung & unverbindliches Angebot.">
+<meta property="og:image" content="header-bg.jpg.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tibi27.github.io/Haus-Gartenservice-Reinhardt/">
+
 <!-- Feather Icons -->
 <script src="https://unpkg.com/feather-icons"></script>
+
 <style>
-  /* Grund & Reset */
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family: Arial, sans-serif; line-height:1.5; scroll-behavior: smooth; background:#f0f0f0; color:#163625; }
+  body { font-family: Arial, sans-serif; scroll-behavior: smooth; color:#163625; background:#f0f0f0; }
 
   a { text-decoration:none; color:inherit; }
-  img { max-width:100%; display:block; }
 
   /* Header / Hero */
-  header { position:relative; height:100vh; overflow:hidden; display:flex; align-items:center; justify-content:center; text-align:center; color:#fff; }
+  header { position:relative; height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; color:#fff; overflow:hidden; }
   header .bg { position:absolute; inset:0; background:url('header-bg.jpg.jpg') center/cover no-repeat; background-size:cover; filter:brightness(0.6); z-index:0; }
+  header .logo { position:absolute; top:20px; left:20px; width:120px; height:120px; background:url('logo.png.avif') center/contain no-repeat; background-size:contain; z-index:2; }
   .hero-content { position:relative; z-index:2; max-width:800px; padding:20px; }
-  .hero-content h1 { font-size:48px; margin-bottom:20px; text-shadow: 2px 2px 8px rgba(0,0,0,0.5); }
-  .hero-content p { font-size:20px; margin-bottom:30px; text-shadow: 1px 1px 6px rgba(0,0,0,0.5); }
+  .hero-content h1 { font-size:48px; margin-bottom:20px; text-shadow:2px 2px 8px rgba(0,0,0,0.5); }
+  .hero-content p { font-size:20px; margin-bottom:30px; text-shadow:1px 1px 6px rgba(0,0,0,0.5); }
   .cta { display:inline-block; background:#2e8b57; color:#fff; padding:14px 28px; border-radius:10px; font-weight:700; transition:0.2s; }
   .cta:hover { background:#276746; }
 
   /* Navbar */
-  .navbar { position:fixed; top:0; width:100%; display:flex; justify-content:space-between; align-items:center; padding:15px 40px; z-index:5; background:rgba(255,255,255,0.2); backdrop-filter:blur(8px); }
+  .navbar { position:fixed; top:0; width:100%; display:flex; justify-content:flex-end; align-items:center; padding:15px 40px; z-index:5; background:rgba(255,255,255,0.2); backdrop-filter:blur(8px); }
   nav ul { display:flex; gap:20px; list-style:none; }
   nav a { padding:8px 12px; border-radius:6px; font-weight:600; color:#fff; transition:background 0.2s; }
   nav a:hover { background: rgba(46,139,87,0.3); }
 
   /* Sections */
-  section { padding:80px 20px; max-width:1100px; margin:0 auto; opacity:0; transform: translateY(30px); transition: all 0.8s ease; }
-  section.visible { opacity:1; transform: translateY(0); }
+  section { padding:80px 20px; max-width:1100px; margin:0 auto; background:#9e9e9e; color:#fff; opacity:0; transform:translateY(30px); transition:all 0.8s ease; border-radius:10px; margin-bottom:40px; }
+  section.visible { opacity:1; transform:translateY(0); }
   section h2 { font-size:32px; margin-bottom:30px; color:#2e8b57; text-align:center; }
   section p { font-size:16px; margin-bottom:16px; text-align:center; }
 
-  /* Service Bereiche */
-  .service { display:flex; flex-direction:column; align-items:center; gap:15px; margin-bottom:30px; }
+  .service { display:flex; flex-direction:column; align-items:center; gap:15px; margin-bottom:30px; transition: all 0.5s; }
   .service svg { width:60px; height:60px; color:#2e8b57; }
 
-  #gartenpflege { background:#9e9e9e; color:#fff; }
-  #hausmeister { background:#868686; color:#fff; }
-  #entruempelung { background:#6f6f6f; color:#fff; }
+  /* Active Section Highlight */
+  section.active { filter: brightness(1.0); }
+  section:not(.active) { filter: brightness(0.6) blur(1px); }
 
   /* Kontakt */
-  .contact { text-align:center; padding:80px 20px; background:#555555; color:#fff; }
-  .contact a.btn { display:inline-block; background:#2e8b57; color:#fff; padding:12px 20px; border-radius:10px; font-weight:700; margin:6px; transition:0.2s; }
-  .contact a.btn:hover { background:#276746; }
+  #contact { background:#555555; color:#fff; text-align:center; padding:80px 20px; border-radius:10px; }
+  #contact a.btn { display:inline-block; background:#2e8b57; color:#fff; padding:12px 20px; border-radius:10px; font-weight:700; margin:6px; transition:0.2s; }
+  #contact a.btn:hover { background:#276746; }
 
   footer { text-align:center; padding:20px; background:#163625; color:#fff; font-size:14px; }
 
@@ -54,6 +63,7 @@
     nav ul { flex-direction:column; gap:10px; margin-top:10px; }
     .hero-content h1 { font-size:36px; }
     .hero-content p { font-size:18px; }
+    .logo { width:80px; height:80px; top:10px; left:10px; }
   }
 </style>
 </head>
@@ -61,8 +71,8 @@
 
 <header>
   <div class="bg"></div>
+  <div class="logo"></div>
   <div class="navbar">
-    <div> <!-- Logo im Bild integriert, daher leer oder nur Text falls nötig --> </div>
     <nav>
       <ul>
         <li><a href="#gartenpflege">Gartenpflege</a></li>
@@ -125,19 +135,20 @@
 </footer>
 
 <script>
-  // Feather Icons initialisieren
-  feather.replace()
+  feather.replace();
 
-  // Scroll Fade-In
+  // Fade-In beim Scrollen & Active Section
   const sections = document.querySelectorAll('section.fade');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if(entry.isIntersecting){
         entry.target.classList.add('visible');
+        // Active Highlight
+        sections.forEach(s => s.classList.remove('active'));
+        entry.target.classList.add('active');
       }
     });
-  }, { threshold:0.1 });
-
+  }, { threshold:0.3 });
   sections.forEach(section => observer.observe(section));
 </script>
 
