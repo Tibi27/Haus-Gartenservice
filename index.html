@@ -4,16 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Haus & Gartenservice Reinhardt</title>
+<!-- Feather Icons -->
+<script src="https://unpkg.com/feather-icons"></script>
 <style>
+  /* Grund & Reset */
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family: Arial, sans-serif; line-height:1.5; scroll-behavior: smooth; color:#163625; background:#e0e0e0; }
+  body { font-family: Arial, sans-serif; line-height:1.5; scroll-behavior: smooth; background:#f0f0f0; color:#163625; }
 
   a { text-decoration:none; color:inherit; }
   img { max-width:100%; display:block; }
 
   /* Header / Hero */
-  header { position:relative; height:100vh; overflow:hidden; display:flex; align-items:center; justify-content:center; color:#fff; text-align:center; }
-  header .bg { position:absolute; inset:0; background:url('header-bg.jpg.jpg') center/cover no-repeat; z-index:0; filter:brightness(0.6); }
+  header { position:relative; height:100vh; overflow:hidden; display:flex; align-items:center; justify-content:center; text-align:center; color:#fff; }
+  header .bg { position:absolute; inset:0; background:url('header-bg.jpg.jpg') center/cover no-repeat; background-size:cover; filter:brightness(0.6); z-index:0; }
   .hero-content { position:relative; z-index:2; max-width:800px; padding:20px; }
   .hero-content h1 { font-size:48px; margin-bottom:20px; text-shadow: 2px 2px 8px rgba(0,0,0,0.5); }
   .hero-content p { font-size:20px; margin-bottom:30px; text-shadow: 1px 1px 6px rgba(0,0,0,0.5); }
@@ -22,31 +25,33 @@
 
   /* Navbar */
   .navbar { position:fixed; top:0; width:100%; display:flex; justify-content:space-between; align-items:center; padding:15px 40px; z-index:5; background:rgba(255,255,255,0.2); backdrop-filter:blur(8px); }
-  .navbar img { width:60px; height:auto; }
   nav ul { display:flex; gap:20px; list-style:none; }
   nav a { padding:8px 12px; border-radius:6px; font-weight:600; color:#fff; transition:background 0.2s; }
   nav a:hover { background: rgba(46,139,87,0.3); }
 
   /* Sections */
-  section { padding:80px 20px; max-width:1100px; margin:0 auto; }
+  section { padding:80px 20px; max-width:1100px; margin:0 auto; opacity:0; transform: translateY(30px); transition: all 0.8s ease; }
+  section.visible { opacity:1; transform: translateY(0); }
   section h2 { font-size:32px; margin-bottom:30px; color:#2e8b57; text-align:center; }
   section p { font-size:16px; margin-bottom:16px; text-align:center; }
 
-  /* Service-Bereiche mit Beton-Grau */
-  #gartenpflege { background:#86867D; color:#fff; }
-  #hausmeister { background:#7F8076; color:#fff; }
-  #entruempelung { background:#86867D; color:#fff; }
+  /* Service Bereiche */
+  .service { display:flex; flex-direction:column; align-items:center; gap:15px; margin-bottom:30px; }
+  .service svg { width:60px; height:60px; color:#2e8b57; }
+
+  #gartenpflege { background:#9e9e9e; color:#fff; }
+  #hausmeister { background:#868686; color:#fff; }
+  #entruempelung { background:#6f6f6f; color:#fff; }
 
   /* Kontakt */
-  .contact { text-align:center; }
+  .contact { text-align:center; padding:80px 20px; background:#555555; color:#fff; }
   .contact a.btn { display:inline-block; background:#2e8b57; color:#fff; padding:12px 20px; border-radius:10px; font-weight:700; margin:6px; transition:0.2s; }
   .contact a.btn:hover { background:#276746; }
 
   footer { text-align:center; padding:20px; background:#163625; color:#fff; font-size:14px; }
 
-  /* Responsive */
   @media(max-width:768px){
-    .navbar ul { flex-direction:column; gap:10px; margin-top:10px; }
+    nav ul { flex-direction:column; gap:10px; margin-top:10px; }
     .hero-content h1 { font-size:36px; }
     .hero-content p { font-size:18px; }
   }
@@ -57,7 +62,7 @@
 <header>
   <div class="bg"></div>
   <div class="navbar">
-    <img src="logo.png.avif" alt="Logo">
+    <div> <!-- Logo im Bild integriert, daher leer oder nur Text falls nötig --> </div>
     <nav>
       <ul>
         <li><a href="#gartenpflege">Gartenpflege</a></li>
@@ -74,24 +79,38 @@
   </div>
 </header>
 
-<section id="gartenpflege">
+<!-- Gartenpflege -->
+<section id="gartenpflege" class="fade">
   <h2>Gartenpflege & Objektpflege</h2>
-  <p>Rasenpflege, Hecken schneiden, Pflanzenpflege und regelmäßige Objektpflege für ein gepflegtes Erscheinungsbild Ihrer Außenanlagen.</p>
+  <div class="service">
+    <i data-feather="leaf"></i>
+    <p>Rasenpflege, Hecken schneiden, Pflanzenpflege und regelmäßige Objektpflege für ein gepflegtes Erscheinungsbild.</p>
+    <p><strong>Kostenlose Besichtigung & unverbindliches Angebot!</strong></p>
+  </div>
 </section>
 
-<section id="hausmeister">
+<!-- Hausmeisterservice -->
+<section id="hausmeister" class="fade">
   <h2>Hausmeisterservice & Renovierung</h2>
-  <p>Kleinreparaturen, Renovierungen, Wartung und Reinigung von Gebäuden – schnell, sauber und zuverlässig.</p>
+  <div class="service">
+    <i data-feather="tool"></i>
+    <p>Kleinreparaturen, Renovierungen, Wartung und Reinigung von Gebäuden – sauber, zuverlässig und professionell.</p>
+    <p><strong>Kostenlose Besichtigung & unverbindliches Angebot!</strong></p>
+  </div>
 </section>
 
-<section id="entruempelung">
-  <h2>Entrümpelung & Haushaltsauflösung</h2>
-  <p>Sie benötigen einen zuverlässigen Fachmann für Entrümpelung oder Haushaltsauflösung? Dann sind Sie bei uns genau richtig!</p>
-  <p>Wir übernehmen Entrümpelungen aller Art – Häuser, Wohnungen, Keller, Geschäftsräume, Messi-Wohnungen, Brandwohnungen oder komplette Betriebe.</p>
-  <p>Auf Wunsch führen wir Renovierungsarbeiten durch: Tapezieren, Streichen, Laminat-, Teppich- oder PVC-Böden.</p>
-  <p>Kostenlose Besichtigung & unverbindliches Angebot vor Ort.</p>
+<!-- Entrümpelung -->
+<section id="entruempelung" class="fade">
+  <h2>Entrümpelung & Entsorgung</h2>
+  <div class="service">
+    <i data-feather="trash-2"></i>
+    <p>Entrümpelungen aller Art: Häuser, Wohnungen, Keller, Geschäftsräume, Messi-Wohnungen oder komplette Betriebe.</p>
+    <p>Renovierungsarbeiten nach Bedarf: Tapezieren, Streichen, Laminat- und PVC-Böden.</p>
+    <p><strong>Kostenlose Besichtigung & unverbindliches Angebot!</strong></p>
+  </div>
 </section>
 
+<!-- Kontakt -->
 <section id="contact">
   <h2>Kontakt</h2>
   <div class="contact">
@@ -104,6 +123,23 @@
 <footer>
   <p>Inhaber: Danny Reinhardt · Am Luisenturm 16, 56077 Koblenz · &copy; 2025 Haus & Gartenservice Reinhardt</p>
 </footer>
+
+<script>
+  // Feather Icons initialisieren
+  feather.replace()
+
+  // Scroll Fade-In
+  const sections = document.querySelectorAll('section.fade');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold:0.1 });
+
+  sections.forEach(section => observer.observe(section));
+</script>
 
 </body>
 </html>
