@@ -1,11 +1,10 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Haus- und Gartenservice Reinhardt</title>
 <meta name="description" content="Professioneller Haus & Gartenservice in Koblenz. Gartenpflege, Hausmeisterservice, Renovierungen, Entrümpelung & Entsorgung. Kostenlose Besichtigung & unverbindliches Angebot.">
-<meta name="keywords" content="Hausservice, Gartenservice, Koblenz, Hausmeister, Renovierung, Entrümpelung, Entsorgung, kostenlose Besichtigung">
 
 <script src="https://unpkg.com/feather-icons"></script>
 
@@ -19,80 +18,132 @@
   header {
     position:fixed;
     top:0; left:0; width:100%; height:100vh;
-    display:flex; align-items:center; justify-content:center; text-align:center; color:#fff; z-index:0;
+    display:flex; align-items:center; justify-content:center; text-align:center; color:#fff; z-index:10;
     overflow:hidden;
   }
   header .bg {
-    position:absolute; inset:0; background:url('header-bg.jpg.jpg') center/cover no-repeat; background-size:cover;
+    position:absolute; inset:0; background:url('header-bg.jpg') center/cover no-repeat;
     filter:brightness(0.6); z-index:-1; transition: transform 1s ease;
   }
-  header .logo {
+
+  /* Logo */
+  .logo {
     position:absolute;
     top:20px;
     left:20px;
-    width:360px;
-    height:360px;
-    background:url('images/logo.png.png') center/contain no-repeat;
+    width:120px;
+    height:120px;
+    background:url('images/logo.png') center/contain no-repeat;
     background-size:contain;
-    z-index:2;
+    z-index:12;
   }
-  .hero-content { position:relative; z-index:1; max-width:800px; padding:20px; }
-  .hero-content h1 { font-size:52px; margin-bottom:20px; text-shadow:2px 2px 8px rgba(0,0,0,0.5); }
-  .hero-content p { font-size:22px; text-shadow:1px 1px 6px rgba(0,0,0,0.5); }
+
+  /* Navigation oben rechts */
+  nav {
+    position:absolute;
+    top:20px;
+    right:30px;
+    display:flex;
+    gap:25px;
+    z-index:12;
+    font-weight:bold;
+  }
+  nav a {
+    color:#fff;
+    font-size:16px;
+    padding:6px 12px;
+    transition:0.3s;
+  }
+  nav a:hover { color:#2e8b57; }
+
+  /* Hero Content */
+  .hero-content {
+    position:relative;
+    z-index:1;
+    max-width:800px;
+    padding:20px 40px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  }
+  .hero-content h1 {
+    font-size:56px;
+    margin-bottom:25px;
+    text-shadow:2px 2px 8px rgba(0,0,0,0.5);
+  }
+  .hero-content p {
+    font-size:22px;
+    line-height:1.6;
+    margin-bottom:30px;
+    text-shadow:1px 1px 6px rgba(0,0,0,0.5);
+  }
   .hero-btn {
     display:inline-block;
     background:#2e8b57;
     color:#fff;
     font-weight:bold;
-    padding:15px 25px;
-    border-radius:10px;
+    padding:16px 30px;
+    border-radius:12px;
     margin-top:20px;
     font-size:18px;
     transition:0.3s;
   }
   .hero-btn:hover { background:#276746; }
 
-  /* Hero-Text für Ganzjahrespflege */
+  /* Ganzjahrespflege Text */
   .hero-text {
-    margin-top:20px;
-    max-width:600px;
+    margin-top:40px;
+    max-width:700px;
     font-size:18px;
+    text-align:center;
+    line-height:1.8;
     text-shadow:1px 1px 6px rgba(0,0,0,0.5);
     color:#fff;
   }
   .hero-text h2 {
-    font-size:28px;
-    margin-bottom:10px;
-    color:#fff; /* bleibt weiß, nicht grün */
+    font-size:30px;
+    margin-bottom:15px;
+    color:#fff;
   }
 
   /* Sections */
   main { position:relative; z-index:1; margin-top:100vh; }
   section {
-    padding:120px 20px; max-width:1100px; margin:80px auto; text-align:center; color:#fff;
-    opacity:0; transform:scale(0.95) translateY(50px); transition: all 0.8s ease; border-radius:10px;
+    padding:140px 20px; max-width:1100px; margin:80px auto; text-align:center; color:#fff;
+    opacity:0; transform:scale(0.95) translateY(50px); transition: all 0.8s ease; border-radius:12px;
     background:#333333;
   }
   section.visible { opacity:1; transform:scale(1) translateY(0); }
-  h2.service-title { font-size:40px; margin-bottom:20px; color:rgba(255,255,255,0.6); transition: color 0.4s; }
+  h2.service-title { font-size:42px; margin-bottom:25px; color:rgba(255,255,255,0.7); transition: color 0.4s; }
   section.active h2.service-title { color:#2e8b57; }
-  .service { margin-top:20px; font-size:18px; line-height:1.6; }
+  .service { margin-top:20px; font-size:18px; line-height:1.8; }
 
   /* Inaktive Sections leicht unscharf */
   section:not(.active):not(#contact) { filter: brightness(0.5) blur(1.5px); }
 
   /* Kontaktbereich */
-  #contact { padding:80px 20px; max-width:1100px; margin:0 auto 60px; text-align:center; background:#555555; color:#fff; border-radius:10px; opacity:0; transform:scale(0.95) translateY(50px); transition: all 0.8s ease; filter:none; }
+  #contact {
+    padding:100px 20px; max-width:1100px; margin:0 auto 60px; text-align:center; background:#555555; color:#fff; border-radius:12px; opacity:0; transform:scale(0.95) translateY(50px); transition: all 0.8s ease;
+  }
   #contact.visible { opacity:1; transform:scale(1) translateY(0); }
-  #contact a { display:inline-block; color:#2e8b57; font-weight:bold; margin:6px; }
+  #contact a { display:inline-block; color:#fff; font-weight:bold; margin:6px; transition:0.3s; }
+  #contact a:hover { color:#2e8b57; }
 
-  footer { text-align:center; padding:20px; background:#163625; color:#fff; font-size:14px; }
+  footer { text-align:center; padding:25px; background:#163625; color:#fff; font-size:14px; }
 
+  @media(max-width:1024px){
+    .hero-content h1 { font-size:48px; }
+    .hero-content p { font-size:20px; }
+    h2.service-title { font-size:36px; }
+    nav { gap:15px; }
+  }
   @media(max-width:768px){
     .hero-content h1 { font-size:36px; }
     .hero-content p { font-size:18px; }
-    h2.service-title { font-size:32px; }
-    .logo { width:240px; height:240px; top:10px; left:10px; }
+    .hero-text h2 { font-size:24px; }
+    .logo { width:100px; height:100px; }
+    nav { flex-direction:column; top:15px; right:15px; background:rgba(0,0,0,0.3); padding:10px; border-radius:8px; }
   }
 </style>
 </head>
@@ -101,12 +152,20 @@
 <header>
   <div class="bg"></div>
   <div class="logo"></div>
+
+  <!-- Navigation oben rechts -->
+  <nav>
+    <a href="#gartenpflege">Gartenpflege</a>
+    <a href="#hausmeister">Hausmeisterservice</a>
+    <a href="#entruempelung">Entrümpelung</a>
+    <a href="#contact">Kontakt</a>
+  </nav>
+
   <div class="hero-content">
     <h1>Haus- und Gartenservice Reinhardt</h1>
     <p>Ihr verlässlicher Partner rund um Haus & Garten – Koblenz & Umgebung</p>
     <a href="#contact" class="hero-btn">Kostenlose Besichtigung & unverbindliches Angebot</a>
 
-    <!-- Ganzjahrespflege Text unter dem Button -->
     <div class="hero-text">
       <h2>Ganzjahrespflege – Ihr Rundum-Sorglos-Paket</h2>
       <p>Wir kümmern uns das ganze Jahr über um Ihre Gärten, Grünanlagen und Rasenflächen – egal welcher Größe. Alle Leistungen kommen aus einer Hand, sodass aufwendige Abstimmungen entfallen. Unsere Arbeiten werden stets dokumentiert, damit Sie immer zuverlässig informiert sind. Wir passen unsere Ganzjahrespflege individuell an Ihre Grünanlage und Ihre Wünsche an. Sprechen Sie uns an!</p>
@@ -177,4 +236,3 @@
 
 </body>
 </html>
-
