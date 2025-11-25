@@ -16,54 +16,65 @@
 
   a { text-decoration:none; color:inherit; }
 
- /* Header / Hero Sticky - angepasst für Handy & Desktop */
+/* Header / Hero Sticky - responsive */
 header {
-    position:fixed;
-    top:0; left:0; width:100%;
-    display:flex;
-    flex-direction:column; /* Logo oben, Text darunter */
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:#fff;
-    z-index:0;
-    overflow:hidden;
-    padding:20px;
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    display: flex;
+    flex-direction: column; /* Logo oben, Text darunter */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    z-index: 0;
+    overflow: hidden;
+    padding: 20px;
 }
-
+header .bg {
+    position: absolute; inset: 0; background: url('header-bg.jpg.jpg') center/cover no-repeat; background-size: cover;
+    filter: brightness(0.6); z-index: -1; transition: transform 1s ease;
+}
 header .logo {
-    width:30vw;      /* flexibel, passt sich Bildschirm an */
-    max-width:200px; /* Desktop nicht zu groß */
-    height:auto;     /* Höhe automatisch */
-    margin-bottom:15px; /* Abstand zum Text */
-    background:url('images/logo.png.png') center/contain no-repeat;
-    z-index:2;
+    width: 30vw;
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 15px;
+    background: url('images/logo.png.png') center/contain no-repeat;
+    z-index: 2;
 }
-
 .hero-content h1 {
-    font-size:6vw;       /* Text skaliert nach Bildschirm */
-    line-height:1.2;
-    margin-bottom:10px;
+    font-size: 6vw;
+    line-height: 1.2;
+    margin-bottom: 10px;
 }
-
 .hero-content p {
-    font-size:4vw;       /* Text skaliert ebenfalls */
-    margin-bottom:20px;
+    font-size: 4vw;
+    margin-bottom: 20px;
 }
 .hero-btn {
-    font-size:4vw;
-    padding:12px 20px;
+    font-size: 4vw;
+    padding: 12px 20px;
+    background: #2e8b57;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: 0.3s;
 }
+.hero-btn:hover { background: #276746; }
 
 @media(min-width:769px){
     header {
-        height:100vh;  /* Desktop bleibt voll */
+        height: 100vh;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
     }
-    .hero-content h1 { font-size:52px; }
-    .hero-content p { font-size:22px; }
-    .hero-btn { font-size:18px; padding:15px 25px; }
-    header .logo { width:360px; height:360px; margin-bottom:0; top:20px; left:20px; position:absolute; }
+    header .logo { width: 360px; height: 360px; margin-bottom: 0; top: 20px; left: 20px; position: absolute; }
+    .hero-content h1 { font-size: 52px; }
+    .hero-content p { font-size: 22px; }
+    .hero-btn { font-size: 18px; padding: 15px 25px; }
 }
+
 
   /* Sections */
   main { position:relative; z-index:1; margin-top:100vh; }
