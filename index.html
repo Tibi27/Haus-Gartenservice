@@ -6,16 +6,14 @@
 <title>Haus- und Gartenservice Reinhardt</title>
 <meta name="description" content="Professioneller Haus & Gartenservice in Koblenz. Gartenpflege, Hausmeisterservice, Renovierungen, Entrümpelung & Entsorgung. Kostenlose Besichtigung & unverbindliches Angebot.">
 <meta name="keywords" content="Hausservice, Gartenservice, Koblenz, Hausmeister, Renovierung, Entrümpelung, Entsorgung, kostenlose Besichtigung">
-
 <script src="https://unpkg.com/feather-icons"></script>
 
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   body { font-family: Arial, sans-serif; scroll-behavior: smooth; color:#163625; overflow-x:hidden; }
-
   a { text-decoration:none; color:inherit; }
 
-  /* Header / Hero Sticky */
+  /* Header / Hero */
   header {
     position:fixed;
     top:0; left:0; width:100%; height:100vh;
@@ -23,53 +21,43 @@
     overflow:hidden;
   }
   header .bg {
-    position:absolute; inset:0; background:url('header-bg.jpg.jpg') center/cover no-repeat; background-size:cover;
-    filter:brightness(0.6); z-index:-1; transition: transform 1s ease;
+    position:absolute; inset:0; background:url('header-bg.jpg.jpg') center/cover no-repeat;
+    background-size:cover; filter:brightness(0.6); z-index:-1; transition: transform 1s ease;
   }
   header .logo {
-    position:absolute;
-    top:20px;
-    left:20px;
-    width:360px;
-    height:360px;
-    background:url('images/logo.png.png') center/contain no-repeat;
-    background-size:contain;
-    z-index:2;
+    position:absolute; top:20px; left:20px; width:360px; height:360px;
+    background:url('images/logo.png.png') center/contain no-repeat; background-size:contain; z-index:2;
   }
   .hero-content { position:relative; z-index:1; max-width:800px; padding:20px; }
+
   .hero-content h1 { font-size:52px; margin-bottom:20px; text-shadow:2px 2px 8px rgba(0,0,0,0.5); }
-  .hero-content p { font-size:22px; text-shadow:1px 1px 6px rgba(0,0,0,0.5); }
+  .hero-content p { font-size:22px; text-shadow:1px 1px 6px rgba(0,0,0,0.5); margin-bottom:20px; }
   .hero-btn {
-    display:inline-block;
-    background:#2e8b57;
-    color:#fff;
-    font-weight:bold;
-    padding:15px 25px;
-    border-radius:10px;
-    margin-top:20px;
-    font-size:18px;
-    transition:0.3s;
+    display:inline-block; background:#2e8b57; color:#fff; font-weight:bold;
+    padding:15px 25px; border-radius:10px; font-size:18px; transition:0.3s;
   }
   .hero-btn:hover { background:#276746; }
 
-  /* Hero-Text für Ganzjahrespflege */
-  .hero-text {
-    margin-top:20px;
-    max-width:600px;
-    font-size:18px;
-    text-shadow:1px 1px 6px rgba(0,0,0,0.5);
-    color:#fff;
+  /* Ganzjahrespflege Text */
+  .hero-text { margin-top:20px; max-width:700px; font-size:18px; text-shadow:1px 1px 6px rgba(0,0,0,0.5); margin-left:auto; margin-right:auto; }
+  .hero-text h2 { font-size:28px; margin-bottom:10px; color:#fff; }
+
+  /* Tabs für Leistungen */
+  .hero-services { display:flex; justify-content:center; gap:15px; margin-top:30px; flex-wrap:wrap; }
+  .service-tab {
+    background:#2e8b57; color:#fff; border:none; padding:10px 20px; border-radius:8px;
+    cursor:pointer; transition:background 0.3s;
   }
-  .hero-text h2 {
-    font-size:28px;
-    margin-bottom:10px;
-    color:#fff; /* bleibt weiß, nicht grün */
-  }
+  .service-tab:hover { background:#276746; }
+  .service-tab.active { background:#fff; color:#2e8b57; font-weight:bold; }
+
+  .hero-service-content { margin-top:20px; max-width:700px; margin-left:auto; margin-right:auto; text-align:center; color:#fff; }
+  .service-content { display:none; }
+  .service-content.active { display:block; }
 
   /* Sections */
   main { position:relative; z-index:1; margin-top:100vh; }
-  section {
-    padding:120px 20px; max-width:1100px; margin:80px auto; text-align:center; color:#fff;
+  section { padding:120px 20px; max-width:1100px; margin:80px auto; text-align:center; color:#fff;
     opacity:0; transform:scale(0.95) translateY(50px); transition: all 0.8s ease; border-radius:10px;
     background:#333333;
   }
@@ -77,11 +65,8 @@
   h2.service-title { font-size:40px; margin-bottom:20px; color:rgba(255,255,255,0.6); transition: color 0.4s; }
   section.active h2.service-title { color:#2e8b57; }
   .service { margin-top:20px; font-size:18px; line-height:1.6; }
-
-  /* Inaktive Sections leicht unscharf */
   section:not(.active):not(#contact) { filter: brightness(0.5) blur(1.5px); }
 
-  /* Kontaktbereich */
   #contact { padding:80px 20px; max-width:1100px; margin:0 auto 60px; text-align:center; background:#555555; color:#fff; border-radius:10px; opacity:0; transform:scale(0.95) translateY(50px); transition: all 0.8s ease; filter:none; }
   #contact.visible { opacity:1; transform:scale(1) translateY(0); }
   #contact a { display:inline-block; color:#2e8b57; font-weight:bold; margin:6px; }
@@ -106,16 +91,35 @@
     <p>Ihr verlässlicher Partner rund um Haus & Garten – Koblenz & Umgebung</p>
     <a href="#contact" class="hero-btn">Kostenlose Besichtigung & unverbindliches Angebot</a>
 
-    <!-- Ganzjahrespflege Text unter dem Button -->
+    <!-- Ganzjahrespflege Text -->
     <div class="hero-text">
       <h2>Ganzjahrespflege – Ihr Rundum-Sorglos-Paket</h2>
       <p>Wir kümmern uns das ganze Jahr über um Ihre Gärten, Grünanlagen und Rasenflächen – egal welcher Größe. Alle Leistungen kommen aus einer Hand, sodass aufwendige Abstimmungen entfallen. Unsere Arbeiten werden stets dokumentiert, damit Sie immer zuverlässig informiert sind. Wir passen unsere Ganzjahrespflege individuell an Ihre Grünanlage und Ihre Wünsche an. Sprechen Sie uns an!</p>
+    </div>
+
+    <!-- Klickbare Leistungen -->
+    <div class="hero-services">
+      <button class="service-tab active" data-target="gartenpflege">Gartenpflege</button>
+      <button class="service-tab" data-target="hausmeister">Hausmeisterservice</button>
+      <button class="service-tab" data-target="entruempelung">Entrümpelung</button>
+    </div>
+
+    <div class="hero-service-content">
+      <div id="gartenpflege" class="service-content active">
+        <p>Rasenpflege, Hecken schneiden, Pflanzenpflege und regelmäßige Objektpflege.</p>
+      </div>
+      <div id="hausmeister" class="service-content">
+        <p>Kleinreparaturen, Renovierungen, Wartung und Reinigung von Gebäuden.</p>
+      </div>
+      <div id="entruempelung" class="service-content">
+        <p>Entrümpelungen aller Art: Häuser, Wohnungen, Keller, Geschäftsräume, Messi-Wohnungen oder komplette Betriebe.</p>
+      </div>
     </div>
   </div>
 </header>
 
 <main>
-  <section id="gartenpflege" class="fade">
+  <section id="gartenpflege-section" class="fade">
     <h2 class="service-title">Gartenpflege & Objektpflege</h2>
     <div class="service">
       <p>Rasenpflege, Hecken schneiden, Pflanzenpflege und regelmäßige Objektpflege.</p>
@@ -123,7 +127,7 @@
     </div>
   </section>
 
-  <section id="hausmeister" class="fade">
+  <section id="hausmeister-section" class="fade">
     <h2 class="service-title">Hausmeisterservice & Renovierung</h2>
     <div class="service">
       <p>Kleinreparaturen, Renovierungen, Wartung und Reinigung von Gebäuden.</p>
@@ -131,7 +135,7 @@
     </div>
   </section>
 
-  <section id="entruempelung" class="fade">
+  <section id="entruempelung-section" class="fade">
     <h2 class="service-title">Entrümpelung & Entsorgung</h2>
     <div class="service">
       <p>Entrümpelungen aller Art: Häuser, Wohnungen, Keller, Geschäftsräume, Messi-Wohnungen oder komplette Betriebe.</p>
@@ -158,6 +162,7 @@
 <script>
   feather.replace();
 
+  // Scroll-Effekte für Sections
   const sections = document.querySelectorAll('section.fade, #contact');
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -173,6 +178,26 @@
     });
   }, { threshold:0.3 });
   sections.forEach(section => observer.observe(section));
+
+  // Tabs im Header
+  const tabs = document.querySelectorAll('.service-tab');
+  const contents = document.querySelectorAll('.service-content');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      const target = tab.dataset.target;
+      contents.forEach(c => {
+        if(c.id === target){
+          c.classList.add('active');
+        } else {
+          c.classList.remove('active');
+        }
+      });
+    });
+  });
 </script>
 
 </body>
